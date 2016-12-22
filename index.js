@@ -26,6 +26,7 @@ app.get('/webhook', function (req, res) {
 
 // Trademark frontpage
 app.get('/trademark', function (req, res) {
+    res.send('Test trademark');
     res.sendfile('./trademark/index.html');
 });
 
