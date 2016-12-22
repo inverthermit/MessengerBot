@@ -1,7 +1,9 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var request = require('request');
-var app = express();
+ express = require('express');
+let bodyParser = require('body-parser');
+let request = require('request');
+let app = express();
+let count = 0;
+
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -23,11 +25,11 @@ app.get('/webhook', function (req, res) {
 
 // handler receiving messages
 app.post('/webhook', function (req, res) {
-    var events = req.body.entry[0].messaging;
+    let events = req.body.entry[0].messaging;
     for (i = 0; i < events.length; i++) {
-        var event = events[i];
+        let event = events[i];
         if (event.message && event.message.text) {
-            sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
+            sendMessage(event.sender.id, {text: "Echo message"+count+":\r\n " + event.message.text});
         }
     }
     res.sendStatus(200);
