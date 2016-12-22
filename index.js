@@ -23,6 +23,13 @@ app.get('/webhook', function (req, res) {
     }
 });
 
+
+// Trademark frontpage
+app.get('/trademark', function (req, res) {
+    res.sendfile('/trademark/index.html');
+});
+
+
 // handler receiving messages
 app.post('/webhook', function (req, res) {
     let events = req.body.entry[0].messaging;
