@@ -29,7 +29,7 @@ app.post('/webhook', function (req, res) {
     for (i = 0; i < events.length; i++) {
         let event = events[i];
         if (event.message && event.message.text) {
-            sendMessage(event.sender.id, {text: "Echo message"+count+":\r\n " + event.message.text});
+            sendMessage(event.sender.id, {text: "Testbot Echo"+count+":\r\n " + event.message.text});
             count=count+1;
         }
     }
