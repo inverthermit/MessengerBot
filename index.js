@@ -3,7 +3,7 @@ let bodyParser = require('body-parser');
 let request = require('request');
 let app = express();
 let count = 0;
-
+app.use(express.static('trademark'));
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -26,8 +26,7 @@ app.get('/webhook', function (req, res) {
 
 // Trademark frontpage
 app.get('/trademark', function (req, res) {
-    res.send('Test trademark');
-    res.sendfile('./trademark/index.html');
+    res.sendfile('trademark/index.html');
 });
 
 
